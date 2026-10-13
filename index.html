@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logos/logo.png">
+    <title>Desarrollo Económico en Nicaragua (2007 - Actualidad)</title>
+    
+    <!-- Leaflet CSS (Para el mapa real de OpenStreetMap) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="cyber-body">
+
+    <!-- Header / Navbar Futurista -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="icon-glow">⚡</span>
+                <div>
+                    
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#mapa-section">Mapa Interactivo</a>
+                <a href="#dimensiones">Características</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#linea-tiempo">Línea de Tiempo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Intro -->
+    <section class="hero">
+        <div class="hero-container">
+            <span class="badge">Matriz de Investigación</span>
+            <h2>Modelo de Desarrollo Económico e Infraestructura</h2>
+            <p>
+                Interactúa con los nodos geográficos del territorio nacional para activar el análisis cibernético de los proyectos clave, infraestructura y avances políticos, sociales y culturales.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección del Mapa Interactivo Leaflet -->
+    <section id="mapa-section" class="section-container">
+        <div class="card map-card">
+            <div class="card-header">
+                <h3><span class="pulse-dot"></span> MAPA Interactivo</h3>
+                <span class="hint">Haz clic en los marcadores para activar zoom y desplegar el informe</span>
+            </div>
+            
+            <!-- Contenedor donde Leaflet renderiza el mapa real -->
+            <div class="map-viewport">
+                <div id="map" class="map-container"></div>
+                <div class="hud-overlay">
+                    <div class="hud-corner top-left"></div>
+                    <div class="hud-corner top-right"></div>
+                    <div class="hud-corner bottom-left"></div>
+                    <div class="hud-corner bottom-right"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal / Pestaña Emergente Futurista -->
+  
+<div id="modal-info" class="modal-backdrop">
+    <div class="modal-window">
+
+        <div class="modal-header">
+            <div class="modal-title-wrap">
+                <span id="modal-icon" class="modal-icon">⚙️</span>
+                <div>
+                    <span class="badge-sm">INFORME GEORREFERENCIADO</span>
+                    <h3 id="modal-title">Departamento</h3>
+                </div>
+            </div>
+            <button id="modal-close" class="modal-close-btn">&times;</button>
+        </div>
+
+        <!-- CUERPO DEL MODAL -->
+        <div class="modal-body">
+
+            <!-- GALERÍA DE IMÁGENES -->
+            <div class="modal-gallery">
+                <div class="modal-image-wrap">
+                    <img id="modal-img" class="modal-img" src="" alt="Imagen del departamento">
+                    
+                    <button id="gallery-prev" class="gallery-btn gallery-prev" aria-label="Imagen anterior">❮</button>
+                    <button id="gallery-next" class="gallery-btn gallery-next" aria-label="Imagen siguiente">❯</button>
+
+                    <!-- Contenedor añadido para mostrar el texto sobre la imagen -->
+                    <div id="gallery-caption" class="gallery-caption"></div>
+
+                    <div class="scanline"></div>
+                </div>
+
+                <div id="gallery-counter" class="gallery-counter">
+                    1 / 1
+                </div>
+            </div>
+
+            <!-- INFORMACIÓN DEL DEPARTAMENTO -->
+            <div class="modal-details">
+                <p id="modal-desc" class="modal-desc"></p>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <span class="box-label">
+                            Eje Económico Estratégico
+                        </span>
+                        <span id="modal-eje" class="box-value"></span>
+                    </div>
+
+                    <div class="info-box">
+                        <span class="box-label">Proyecto Insignia</span>
+                        <span id="modal-proyecto" class="box-value highlight"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PIE DEL MODAL -->
+        <div class="modal-footer">
+            <span>ESTADO: DATOS VERIFICADOS</span>
+            <button id="btn-cerrar-footer" class="btn-cyan">
+                ACEPTAR Y VOLVER AL MAPA
+            </button>
+        </div>
+
+    </div>
+</div>
+
+    <!-- Resto de secciones (H-1, Línea de tiempo, etc.) -->
+    <section id="dimensiones" class="bg-alt section-padding">
+        <div class="max-width">
+            <div class="text-center">
+                <h2>Características Principales (2007 - Actualidad)</h2>
+                <p class="section-sub">Ejes estructurales del desarrollo multidimensional en Nicaragua</p>
+            </div>
+            <div class="grid-4">
+                <div class="card feature-card"><div class="feature-icon icon-red">🏛️</div><h3>1. Política</h3><ul><li>Modelo de alianzas y consenso.</li><li>Plan Nacional de Desarrollo Humano.</li><li>Fortalecimiento estatal.</li><li>Relaciones ALBA y China.</li></ul></div>
+                <div class="card feature-card"><div class="feature-icon icon-green">🌱</div><h3>2. Económica</h3><ul><li>Crecimiento agroexportador.</li><li>Matriz >70% renovable.</li><li>Inversión en infraestructura.</li><li>Zonas Francas.</li></ul></div>
+                <div class="card feature-card"><div class="feature-icon icon-blue">👥</div><h3>3. Social</h3><ul><li>Reducción de pobreza.</li><li>Programas Usura Cero / Hambre Cero.</li><li>Salud y educación gratuitas.</li><li>Cobertura eléctrica >99%.</li></ul></div>
+                <div class="card feature-card"><div class="feature-icon icon-purple">🎭</div><h3>4. Cultural</h3><ul><li>Economía Familiar y Creativa.</li><li>Tradiciones locales.</li><li>Inclusión Costa Caribe.</li><li>Turismo comunitario.</li></ul></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Proyecto Didáctico: Desarrollo Económico en Nicaragua (2007 - Actualidad)</p>
+        <p class="footer-sub">Leaflet OpenStreetMap Integration | Web Audio API</p>
+    </footer>
+
+    <!-- Leaflet JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <!-- Script Personalizado -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
