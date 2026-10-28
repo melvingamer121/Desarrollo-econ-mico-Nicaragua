@@ -305,6 +305,7 @@ function actualizarGaleria() {
         galleryNext.hidden = true;
         return;
     }
+    
 
  const imagen = imagenesDepartamento[imagenActual];
 
@@ -408,10 +409,50 @@ actualizarGaleria();
 
     modalClose.addEventListener('click', cerrarModal);
     btnCerrarFooter.addEventListener('click', cerrarModal);
+    
     // Cerrar al tocar el fondo del modal
 modal.addEventListener('click', (event) => {
     if (event.target === modal) {
         cerrarModal();
     }
 });
+    
+        // Lógica para contadores animados en la sección de estadísticas
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    function runCounters() {
+        statNumbers.forEach(stat => {
+            const target = +stat.getAttribute('data-target');
+            const isPercentage = stat.parentElement.querySelector('.stat-label').innerText.includes('%') || target % 1 !== 0;
+            let count = 0;
+            const speed = target / 50;
+
+            const updateCount = () => {
+                count += speed;
+                if (count < target) {
+                    stat.innerText = (isPercentage ? count.toFixed(1) : Math.ceil(count)) + (isPercentage ? '%' : '');
+                    setTimeout(updateCount, 30);
+                } else {
+                    stat.innerText = target + (isPercentage ? '%' : '');
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Observer para ejecutar la animación al hacer scroll
+    const statsSection = document.getElementById('estadisticas');
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !animated) {
+                runCounters();
+                animated = true;
+            }
+        }, { threshold: 0.3 });
+
+        observer.observe(statsSection);
+    }
+
 });
+        
