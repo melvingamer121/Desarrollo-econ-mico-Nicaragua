@@ -408,19 +408,10 @@ actualizarGaleria();
 
     modalClose.addEventListener('click', cerrarModal);
     btnCerrarFooter.addEventListener('click', cerrarModal);
-});
-
-
-// Cerrar al tocar el fondo del modal
+    // Cerrar al tocar el fondo del modal
 modal.addEventListener('click', (event) => {
     if (event.target === modal) {
         cerrarModal();
     }
-    modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        cerrarModal();
-    }
 });
 });
-});
-
